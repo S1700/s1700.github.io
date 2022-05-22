@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+</head>
+<body>
+    <script>
+        $('body').terminal({
+            help: function() {
+        this.echo('Commands:' + 
+            
+            '\n\nhelp       - Shows this message, belive me or not.' +
+            '\nclear      - Clear the terminal, everyone likes to keep it clean.' +
+            '\nwhoami     - Tells you a bit about me.' +
+            '\nprojects   - Gives you a list of all my projects and where to go to find them.' +
+            '\nsocials    - Tells you where you can find me on social.' +
+            '\nsuggest    - Suggest a feature for me to add.');
+            },
+
+            whoami: function() {
+        this.echo('Hello world, my name is S1700. I love coding and I know a lot about it. Don\'t believe me? Who do you think made this website? \nYou can find all of my projects with the projects command.', {typing: true, delay: 50});
+            },
+            projects: function() {
+        this.echo('All of my projects (including this one) can be found here:\nhttps://github.com/s1700');
+            },
+            socials: function() {
+        this.echo('You can find me on all these:\nDiscord: SonyBlueRayPlayer#8367');
+            },
+            suggest: function() {
+        this.echo('What would you like to see added?\nhttps://github.com/s1700/s1700.github.io/issues');
+            }
+        }, {
+            greetings: 'S1700.github.io\n\nUse \'help\' to list all commands'
+        });
+    </script>
+</body>
+</html>
