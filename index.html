@@ -34,25 +34,10 @@ gtag('config', 'G-SLNXZTCGHB');
         
         setInterval(age, 500);
 
-        const sequence = ['Initialization of boot sequence', 'Pinging server', 'Checking cookies', 'Mounting filesystem', 'Saying hi to Google', 'Taking cookies from the jar'];
+        fakePing = Math.floor(Math.random() * 1000) + 10;
+        const sequence = ['Initialization of boot sequence', 'Pinging server', fakePing + ' ping', 'Mounting non-existent filesystem', 'Saying hi to Google', 'Taking cookies from the jar', 'Checking cookies', 'The cookies are amazing', '[DONE]\n'];
 
         $('body').terminal({
-            onInit(){
-                const term = this;
-                if (!localStorage.getItem('visited')) {
-                    term.pause(true);
-                    (function loop() {
-                        term.echo(sequence.shift());
-                        if (sequence.length) {
-                            setTimeout(loop, 1000);
-                        } else {
-                            localStorage.setItem('visited', true);
-                            term.resume();
-                        }
-                    })();
-                }
-            },
-
             hello: function(name) {
                 this.echo('Hello ' + name);
             },
@@ -74,7 +59,7 @@ gtag('config', 'G-SLNXZTCGHB');
             '\nLocation: England' +
             '\nEmail: samuel20354@outlook.com' +
             '\nSkills: Python coding and full stack development.' +
-            '\nFun fact: I love music! Some say I can\'t go without it.');
+            '\nFun fact: I love music!');
             },
             projects: function() {
         this.echo('All of my projects (including this one) can be found here:\nhttps://github.com/s1700');
@@ -89,7 +74,24 @@ gtag('config', 'G-SLNXZTCGHB');
         this.echo('Oh you found my secret command! Well unfortunately theres nothing here yet.');
             }
         }, {
-            greetings: 'S1700.github.io\n\nUse \'help\' to list all commands',
+            onInit(){
+                const term = this;
+                if (!localStorage.getItem('visited')) {
+                    term.pause(true);
+                    (function loop() {
+                        term.echo(sequence.shift());
+                        if (sequence.length) {
+                            delay = Math.floor(Math.random() * 1500) + 70;
+                            setTimeout(loop, delay);
+                        } else {
+                            localStorage.setItem('visited', true);
+                            term.resume();
+                        }
+                    })();
+                }
+            },
+
+            greetings: 'S1700.github.io\n',
             prompt: '> '
         });
     </script>
