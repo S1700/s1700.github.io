@@ -34,12 +34,12 @@ gtag('config', 'G-SLNXZTCGHB');
         
         setInterval(age, 500);
 
-        fakePing = Math.floor(Math.random() * 1000) + 10;
-        const sequence = ['Initialization of boot sequence', 'Pinging server', fakePing + ' ping', 'Mounting non-existent filesystem', 'Saying hi to Google', 'Taking cookies from the jar', 'Checking cookies', 'The cookies are amazing', '[DONE]\n'];
+        fakePing = Math.floor(Math.random() * 1000) + 5;
+        const sequence = ['Initialization of boot sequence, please wait.', '[[;green;][ OK ]]  ' + fakePing + ' ping', '[[;green;][ OK ]]  Mounting non-existent filesystem', '[[;green;][ PASSED ]]  Filesystem check', '[[;green;][ OK ]]  Saying hi to Google', '[[;red;][ FAILED ]]  Asking Elon for a free telsa', '[[;green;][ OK ]]  Sending thanks to jcubic', '[[;green;][ OK ]]  Taking cookies from the jar', '[[;green;][ OK ]]  The cookies are amazing', '[[;green;][ OK ]]  Kernel load', '[[;green;][ OK ]]  System user load', '[[;green;][ OK ]]  Loading commands', '[[;green;]\nDONE!]\n'];
 
         $('body').terminal({
             hello: function(name) {
-                this.echo('Hello ' + name);
+                this.echo('\nHello ' + name);
             },
 
             help: function() {
@@ -58,20 +58,27 @@ gtag('config', 'G-SLNXZTCGHB');
             '\nAge: ' + myAge + ' years' +
             '\nLocation: England' +
             '\nEmail: samuel20354@outlook.com' +
-            '\nSkills: Python coding and full stack development.' +
-            '\nFun fact: I love music!');
+            '\nSkills:' +
+            '\n  -Python' +
+            '\n  -HTML' +
+            '\n  -Bash' +
+            '\n  -Full stack development');
             },
             projects: function() {
-        this.echo('All of my projects (including this one) can be found here:\nhttps://github.com/s1700');
+        this.echo('\nAll of my projects (including this one) can be found here:\nhttps://github.com/s1700');
             },
             socials: function() {
         this.echo('\nYou can find me on all these:\nDiscord: S1700#8367\nGithub: S1700');
             },
             suggest: function() {
-        this.echo('What would you like to see added?\nhttps://github.com/s1700/s1700.github.io/issues');
+        this.echo('\nWhat would you like to see added?\nhttps://github.com/s1700/s1700.github.io/issues');
+            },
+            delLocalStr: function() {
+                localStorage.removeItem('visited');
+                this.echo('\n[[;red;]Local storage cleared.]');
             },
             secret: function() {
-        this.echo('Oh you found my secret command! Well unfortunately theres nothing here yet.');
+        this.echo('\nOh, you found my secret command! Well unfortunately theres nothing here yet.');
             }
         }, {
             onInit(){
@@ -81,7 +88,7 @@ gtag('config', 'G-SLNXZTCGHB');
                     (function loop() {
                         term.echo(sequence.shift());
                         if (sequence.length) {
-                            delay = Math.floor(Math.random() * 1500) + 70;
+                            delay = Math.floor(Math.random() * 1200) + 30;
                             setTimeout(loop, delay);
                         } else {
                             localStorage.setItem('visited', true);
