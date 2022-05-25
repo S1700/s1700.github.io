@@ -84,7 +84,7 @@ gtag('config', 'G-SLNXZTCGHB');
             onInit(){
                 const term = this;
                 if (!localStorage.getItem('visited')) {
-                    term.pause(true);
+                    term.pause();
                     (function loop() {
                         term.echo(sequence.shift());
                         if (sequence.length) {
@@ -92,11 +92,14 @@ gtag('config', 'G-SLNXZTCGHB');
                             setTimeout(loop, delay);
                         } else {
                             localStorage.setItem('visited', true);
-                            term.resume();
+                            setTimeout(() => {
+                                term.clear().resume();
+                                term.echo('Welcome! Use \'help\' to see all commands.\n');
+                            }, 500);
                         }
                     })();
                 }
-            },
+            }, 
 
             greetings: 'S1700.github.io\n',
             prompt: '> '
