@@ -78,8 +78,14 @@ gtag('config', 'G-SLNXZTCGHB');
                 this.echo('\n[[;red;]Local storage cleared.]');
             },
             secret: function() {
-        this.echo('\nOh, you found my secret command! Well unfortunately theres nothing here yet.');
+            hashCode = function(s){
+                return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
             }
+            this.set_mask('*').read('Password: ').then(pass => {
+                this.set_mask(false);
+                if (hashCode(pass) == '-1152556145') this.echo('\n[[;green;]Access granted.]')
+                else this.echo('\n[[;red;]Access denied.]')});
+        },
         }, {
             onInit(){
                 const term = this;
