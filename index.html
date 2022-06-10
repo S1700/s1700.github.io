@@ -35,7 +35,7 @@ gtag('config', 'G-SLNXZTCGHB');
         setInterval(age, 500);
 
         fakePing = Math.floor(Math.random() * 1000) + 5;
-        const sequence = ['Initialization of boot sequence, please wait.', '[[;green;][ OK ]]  ' + fakePing + ' ping', '[[;green;][ OK ]]  Mounting non-existent filesystem', '[[;green;][ PASSED ]]  Filesystem check', '[[;green;][ OK ]]  Saying hi to Google', '[[;red;][ FAILED ]]  Asking Elon for a free telsa', '[[;green;][ OK ]]  Sending thanks to jcubic', '[[;green;][ OK ]]  Taking cookies from the jar', '[[;green;][ OK ]]  The cookies are amazing', '[[;green;][ OK ]]  Kernel load', '[[;green;][ OK ]]  System user load', '[[;green;][ OK ]]  Loading commands', '[[;green;]\nDONE!]\n'];
+        const sequence = ['Initialization of boot sequence, please wait.', '[[;green;][ OK ]]  ' + fakePing + ' ping', '[[;green;][ OK ]]  Mounting non-existent filesystem', '[[;green;][ PASSED ]]  Filesystem check', '[[;green;][ OK ]]  Saying hi to Google', '[[;red;][ FAILED ]]  Asking Elon for a free telsa', '[[;green;][ OK ]]  Sending thanks to jcubic', '[[;green;][ OK ]]  Taking cookies from the jar', '[[;green;][ OK ]]  The cookies are amazing', '[[;green;][ OK ]]  Kernel load', '[[;green;][ OK ]]  System user load', '[[;green;][ OK ]]  Loading commands', '[[;green;][ OK ]]  Loading Fun Facts', '[[;green;]\nDONE!]\n'];
 
         $('body').terminal({
             hello: function(name) {
@@ -54,10 +54,13 @@ gtag('config', 'G-SLNXZTCGHB');
             },
 
             whoami: function() {
+            funfacts = ["I love music!", "I never get any sleep", "I can fly drones! Check my YT ;)", "I'm very bad at art", "This is my first about me website", "This is my first time using this much JS", "I know Italian!"];
+            var funFact = funfacts[Math.floor(Math.random() * funfacts.length)];
         this.echo('\nName: S1700' +
             '\nAge: ' + myAge + ' years' +
             '\nLocation: England' +
             '\nEmail: samuel20354@outlook.com' +
+            '\nFun fact: ' + funFact +
             '\nSkills:' +
             '\n  -Python' +
             '\n  -HTML' +
@@ -68,24 +71,15 @@ gtag('config', 'G-SLNXZTCGHB');
         this.echo('\nAll of my projects (including this one) can be found here:\nhttps://github.com/s1700');
             },
             socials: function() {
-        this.echo('\nYou can find me on all these:\nDiscord: S1700#8367\nGithub: S1700');
+        this.echo('\nYou can find me on all these:\nDiscord: S1700#8367\nGithub: S1700\nYoutube: ST FPV\nSteam: s1700');
             },
             suggest: function() {
         this.echo('\nWhat would you like to see added?\nhttps://github.com/s1700/s1700.github.io/issues');
             },
             delLocalStr: function() {
-                localStorage.removeItem('visited');
-                this.echo('\n[[;red;]Local storage cleared.]');
+                    localStorage.removeItem('visited');
+                    this.echo('\n[[;red;]Local storage cleared.]');    
             },
-            secret: function() {
-            hashCode = function(s){
-                return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
-            }
-            this.set_mask('*').read('Password: ').then(pass => {
-                this.set_mask(false);
-                if (hashCode(pass) == '-1152556145') this.echo('\n[[;green;]Access granted.]')
-                else this.echo('\n[[;red;]Access denied.]')});
-        },
         }, {
             onInit(){
                 const term = this;
@@ -94,7 +88,7 @@ gtag('config', 'G-SLNXZTCGHB');
                     (function loop() {
                         term.echo(sequence.shift());
                         if (sequence.length) {
-                            delay = Math.floor(Math.random() * 1200) + 30;
+                            delay = Math.floor(Math.random() * 1600) + 30;
                             setTimeout(loop, delay);
                         } else {
                             localStorage.setItem('visited', true);
