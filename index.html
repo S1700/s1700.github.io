@@ -50,11 +50,12 @@ gtag('config', 'G-SLNXZTCGHB');
             '\nwhoami     - Tells you a bit about me.' +
             '\nprojects   - Gives you a list of all my projects and where to go to find them.' +
             '\nsocials    - Tells you where you can find me on social.' +
+            '\ndonate     - All of my crypto addresses if your feeling generous.' +
             '\nsuggest    - Suggest a feature for me to add.');
             },
 
             whoami: function() {
-            funfacts = ["I love music!", "I never get any sleep", "I can fly drones! Check my YT ;)", "I'm very bad at art", "This is my first about me website", "This is my first time using this much JS", "I know Italian!"];
+            funfacts = ["I love music!", "I never get any sleep", "I can fly drones! Check my YT, ST FPV ;)", "I'm very bad at art", "This is my first about me website", "This is my first time using this much JS", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"];
             var funFact = funfacts[Math.floor(Math.random() * funfacts.length)];
         this.echo('\nName: S1700' +
             '\nAge: ' + myAge + ' years' +
@@ -72,6 +73,14 @@ gtag('config', 'G-SLNXZTCGHB');
             },
             socials: function() {
         this.echo('\nYou can find me on all these:\nDiscord: S1700#8367\nGithub: S1700\nYoutube: ST FPV\nSteam: s1700');
+            },
+            donate: function() {
+        this.echo('\nHere are all of my crypto wallet addresses:' +
+                '\n\nBitcoin (BTC): bc1qap2ltttstmqchld2wykvcf2smledtvh5ydfgyz' +
+                '\nEthereum (ETH): 0x3ddc4c2C7360537e4733403ce41F96A673075c13' +
+                '\nMonero (XMR): 47j3bMPhHSLNXn4ijLMavqezePe2LvXK35xxvwuUkAUT5ei77GQKUTARFigSEoAFSQTvZPSeqnDYB69Uk1QvypPiUp16d8T' +
+                '\nTron (TRX): TNf9SUe7NrXiMjfyzmPuiDiejuEjKfamym' +
+                '\nDogecoin (DOGE): DTCoMtxAXUyZrwd5J2PwvfxUA19aEVzU49');
             },
             suggest: function() {
         this.echo('\nWhat would you like to see added?\nhttps://github.com/s1700/s1700.github.io/issues');
